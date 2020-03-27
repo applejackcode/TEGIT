@@ -44,6 +44,36 @@
     <Compile Include="TEGIT\wsgi.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="GamePage\LICENSE" />
+    <Content Include="GamePage\static\css\simple-sidebar.css" />
+    <Content Include="GamePage\static\gulpfile.js" />
+    <Content Include="GamePage\static\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="GamePage\static\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="GamePage\static\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="GamePage\static\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="GamePage\static\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="GamePage\static\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="GamePage\static\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="GamePage\static\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="GamePage\static\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="GamePage\static\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="GamePage\static\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="GamePage\static\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="GamePage\static\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="GamePage\static\vendor\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="GamePage\static\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="GamePage\static\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="GamePage\static\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="GamePage\static\vendor\bootstrap\js\bootstrap.js.map" />
+    <Content Include="GamePage\static\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="GamePage\static\vendor\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="GamePage\static\vendor\jquery\jquery.js" />
+    <Content Include="GamePage\static\vendor\jquery\jquery.min.js" />
+    <Content Include="GamePage\static\vendor\jquery\jquery.min.map" />
+    <Content Include="GamePage\static\vendor\jquery\jquery.slim.js" />
+    <Content Include="GamePage\static\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="GamePage\static\vendor\jquery\jquery.slim.min.map" />
+    <Content Include="GamePage\templates\GamePage\gameview.html" />
     <Content Include="GamePage\templates\GamePage\index.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
@@ -51,6 +81,12 @@
     <Folder Include="GamePage\" />
     <Folder Include="GamePage\migrations\" />
     <Folder Include="GamePage\static\" />
+    <Folder Include="GamePage\static\css\" />
+    <Folder Include="GamePage\static\vendor\" />
+    <Folder Include="GamePage\static\vendor\bootstrap\" />
+    <Folder Include="GamePage\static\vendor\bootstrap\css\" />
+    <Folder Include="GamePage\static\vendor\bootstrap\js\" />
+    <Folder Include="GamePage\static\vendor\jquery\" />
     <Folder Include="GamePage\templates\" />
     <Folder Include="GamePage\templates\GamePage\" />
     <Folder Include="TEGIT\" />
