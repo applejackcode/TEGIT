@@ -50,6 +50,7 @@
   <ItemGroup>
     <Folder Include="GamePage\" />
     <Folder Include="GamePage\migrations\" />
+    <Folder Include="GamePage\static\" />
     <Folder Include="GamePage\templates\" />
     <Folder Include="GamePage\templates\GamePage\" />
     <Folder Include="TEGIT\" />
