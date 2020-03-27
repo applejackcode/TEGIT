@@ -1,3 +1,5 @@
+from django.conf.urls import url
+import GamePage.views
 """
 TEGIT URL Configuration
 
@@ -20,7 +22,8 @@ Including another URLconf
 #from django.contrib import admin
 #from django.urls import path
 
-urlpatterns = [
+urlpatterns = [url(r'^$', GamePage.views.index, name='index'),
+    url(r'^home$', GamePage.views.index, name='home'),
     # Uncomment the next line to enable the admin:
     #path('admin/', admin.site.urls)
 ]
