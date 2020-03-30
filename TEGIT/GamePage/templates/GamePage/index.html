@@ -1,10 +1,251 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <title>{{ title }}</title>
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Fontawesome -->
+    <link href="styles/fontawesome/css/all.css" rel="stylesheet">
 </head>
 
 <body>
-    <strong>{{ message }}</strong>
-    {{ content }}
+    <div class="container-fluid">
+        <!--Sizing Row-->
+        <div class="row">
+            <div class="col-9">
+                <!--Size row-->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <!--Size headers-->
+                        <div class="row">
+                            <div class="col-sm-12"><h2>Sizings</h2></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm  bg-success text-white">
+                                Small
+                            </div>
+                            <div class="col-sm bg-secondary text-white">
+                                Base
+                            </div>
+                            <div class="col-sm bg-danger text-white">
+                                Large
+                            </div>
+                        </div>
+                        <!--Size boxes-->
+                        <div class="row">
+                            <div class="col-sm border d-flex flex-column min-vh-50" id="smallBox"></div>
+                            <div class="col-sm border d-flex flex-column min-vh-50" id="baseBox"></div>
+                            <div class="col-sm border d-flex flex-column min-vh-50" id="largeBox"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--breaker row-->
+                <div class="row">
+                    <div class="col-sm-12">&nbsp;</div>
+                </div>
+            </div>
+            <!--Holding Pen-->
+            <div class="col-3">
+                <div class="row">
+                    <div class="col-sm-6">
+                        Holding Pen
+                    </div>
+                    <div class="col-sm-6">
+                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#pbiModal">+Add Items</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 border min-vh-50" id="pbiCards"></div>
+                </div>
+            </div>
+        </div>
+        <!--Effort row-->
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <!--Effort headers-->
+                        <div class="row">
+                            <div class="col-sm-12"><h2>Effort</h2></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm bg-light text-black">
+                                1
+                            </div>
+                            <div class="col-sm bg-secondary text-white">
+                                2
+                            </div>
+                            <div class="col-sm bg-info text-white">
+                                3
+                            </div>
+                            <div class="col-sm bg-primary text-white">
+                                5
+                            </div>
+                            <div class="col-sm bg-success text-white">
+                                8
+                            </div>
+                            <div class="col-sm bg-warning text-black">
+                                13
+                            </div>
+                            <div class="col-sm bg-danger text-white">
+                                21
+                            </div>
+                        </div>
+                        <!--Effort boxes-->
+                        <div class="row">
+                            <div class="col-sm border d-flex flex-column min-vh-100" id="1Box"></div>
+                            <div class="col-sm border d-flex flex-column min-vh-100" id="2Box"></div>
+                            <div class="col-sm border d-flex flex-column min-vh-100" id="3Box"></div>
+                            <div class="col-sm border d-flex flex-column min-vh-100" id="5Box"></div>
+                            <div class="col-sm border d-flex flex-column min-vh-100" id="8Box"></div>
+                            <div class="col-sm border d-flex flex-column min-vh-100" id="13Box"></div>
+                            <div class="col-sm border d-flex flex-column min-vh-100" id="21Box"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--start add modal-->
+    <div class="modal" tabindex="-1" role="dialog" id="pbiModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add Backlog Items</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <textarea class="form-control" id="pbiItems" rows="10"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" onclick="addItems();">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end add modal-->
+
+    <!-- JS CDNs-->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!--JS Helpers-->
+    <script type="text/javascript">
+        var cardTemplate = "<div class=\"card border-primary\" id=\"cardID\" style=\"position: absolute;\">\r\n";
+        cardTemplate += "<div class=\"card-header bg-secondary text-white\">cardHeader";
+        cardTemplate += "  <button type=\"button\" class=\"close\" onclick=\"deleteCard('cardID')\">\r\n";
+        cardTemplate += "    <span aria-hidden=\"true\">&times;</span>\r\n";
+        cardTemplate += "  </button>\r\n";
+        cardTemplate += "</div > ";
+        cardTemplate += "<div class=\"card-body\">cardContent</div>";
+        cardTemplate += "</div>";
+
+        function addItems() {
+            try {
+                //read contents of modal
+                if ($("#pbiItems").val() != null && $("#pbiItems").val() != "") {
+                    var boxLines = $("#pbiItems").val().split('\n');
+                    for (var i = 0; i < boxLines.length; i++) {
+                        var itemInfo = boxLines[i].split('|');
+                        makeCard(itemInfo[0], itemInfo[1], itemInfo[2], "pbiCards");
+                        dragElement(document.getElementById(itemInfo[0]));
+                    }
+                }
+                else {
+                    alert("Please enter items in the box. Format = ID|Title|Description");
+                }
+
+                //loop through items and append to holding pen
+            }
+            catch (e) {
+                alert("error occurred adding items to holding pen: " + e.description);
+            }
+        }
+
+        function makeCard(cardID, cardHeader, cardContent, cardBoxID) {
+            try {
+                //init new card
+                var newCard = cardTemplate;
+
+                //do replacements
+                newCard = newCard.replace(/cardID/g, cardID);
+                newCard = newCard.replace(/cardHeader/g, cardHeader);
+                newCard = newCard.replace(/cardContent/g, cardContent);
+
+                //append newCard to card box
+                if ($("#" + cardBoxID) != null) {
+                    $("#" + cardBoxID).append(newCard);
+                }
+            }
+            catch (e) {
+                alert("error occurred making new card: " + e.description);
+            }
+        }
+
+        function deleteCard(cardID) {
+            try {
+                if ($("#" + cardID) != null) {
+                    $("#" + cardID).remove();
+                }
+            }
+            catch (e) {
+                alert("error occurred deleting card: " + e.description);
+            }
+        }
+
+        function dragElement(elmnt)
+        {
+            var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            if (document.getElementById(elmnt.id)) {
+            // if present, the header is where you move the DIV from:
+            document.getElementById(elmnt.id).onmousedown = dragMouseDown;
+            } else {
+            // otherwise, move the DIV from anywhere inside the DIV:
+            elmnt.onmousedown = dragMouseDown;
+            }
+
+            function dragMouseDown(e) {
+            e = e || window.event;
+            e.preventDefault();
+            // get the mouse cursor position at startup:
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            document.onmouseup = closeDragElement;
+            // call a function whenever the cursor moves:
+            document.onmousemove = elementDrag;
+            }
+
+            function elementDrag(e) {
+            e = e || window.event;
+            e.preventDefault();
+            // calculate the new cursor position:
+            pos1 = pos3 - e.clientX;
+            pos2 = pos4 - e.clientY;
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            // set the element's new position:
+            elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+            elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+            }
+
+            function closeDragElement() {
+            // stop moving when mouse button is released:
+            document.onmouseup = null;
+            document.onmousemove = null;
+            }
+        }
+    </script>
 </body>
 </html>
