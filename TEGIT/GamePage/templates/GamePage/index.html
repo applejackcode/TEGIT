@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -16,32 +16,38 @@
 
 <body>
     <div class="container-fluid">
+        <div class="row">
+            <div class="col-9"><h2>Sizings</h2></div>
+            <div class="col-3">
+                <span class="float-right"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#pbiModal">+Add Items</button></span>
+            </div>
+        </div>
         <!--Sizing Row-->
         <div class="row">
             <div class="col-9">
                 <!--Size row-->
                 <div class="row">
-                    <div class="col-sm-12">
-                        <!--Size headers-->
+                    <div class="col-12">
+                        <!--Size Boxes-->
                         <div class="row">
-                            <div class="col-sm-12"><h2>Sizings</h2></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm  bg-success text-white">
-                                Small
+                            <div class="col-4">
+                                <div class="card bg-light" style="width: 100%">
+                                    <div class="card-header bg-success text-white">Small</div>
+                                    <div class="card-body overflow-auto" id="smallBox" style="min-height: 50px"></div>
+                                </div>
                             </div>
-                            <div class="col-sm bg-secondary text-white">
-                                Base
+                            <div class="col-4">
+                                <div class="card bg-light" style="width: 100%">
+                                    <div class="card-header bg-secondary text-white">Base</div>
+                                    <div class="card-body overflow-auto" id="basebox" style="min-height: 50px"></div>
+                                </div>
                             </div>
-                            <div class="col-sm bg-danger text-white">
-                                Large
+                            <div class="col-4">
+                                <div class="card bg-light" style="width: 100%">
+                                    <div class="card-header bg-danger text-white">Large</div>
+                                    <div class="card-body overflow-auto" id="largeBox" style="min-height: 50px"></div>
+                                </div>
                             </div>
-                        </div>
-                        <!--Size boxes-->
-                        <div class="row">
-                            <div class="col-sm border d-flex flex-column min-vh-50" id="smallBox"></div>
-                            <div class="col-sm border d-flex flex-column min-vh-50" id="baseBox"></div>
-                            <div class="col-sm border d-flex flex-column min-vh-50" id="largeBox"></div>
                         </div>
                     </div>
                 </div>
@@ -53,15 +59,19 @@
             <!--Holding Pen-->
             <div class="col-3">
                 <div class="row">
-                    <div class="col-sm-6">
-                        Holding Pen
-                    </div>
-                    <div class="col-sm-6">
-                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#pbiModal">+Add Items</button>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12 border min-vh-50" id="pbiCards"></div>
+                    <div class="col-12">
+                        <!--Holding Pen-->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card" style="width: 100%">
+                                    <div class="card-header bg-dark text-white">Holding Pen</div>
+                                    <div class="card-body overflow-auto" style="min-height: 50px">
+                                        <div id="pbiCards" style="z-index: 8;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                   </div>
                 </div>
             </div>
         </div>
@@ -143,13 +153,15 @@
 
     <!--JS Helpers-->
     <script type="text/javascript">
-        var cardTemplate = "<div class=\"card border-primary\" id=\"cardID\" style=\"position: absolute;\">\r\n";
-        cardTemplate += "<div class=\"card-header bg-secondary text-white\">cardHeader";
-        cardTemplate += "  <button type=\"button\" class=\"close\" onclick=\"deleteCard('cardID')\">\r\n";
+        //draggable links: https://www.kirupa.com/html5/drag.htm and https://www.w3schools.com/howto/howto_js_draggable.asp
+
+        var cardTemplate = "<div class=\"card border-primary\" id=\"cardID\" style=\"width: 10rem; position: absolute; z-index: 9; cursor: move;\">\r\n";
+        cardTemplate += "<div class=\"card-header\" style=\"z-index: 10\">cardHeader";
+        cardTemplate += "  <button type=\"button\" class=\"close btn-sm\" onclick=\"deleteCard('cardID')\">\r\n";
         cardTemplate += "    <span aria-hidden=\"true\">&times;</span>\r\n";
         cardTemplate += "  </button>\r\n";
         cardTemplate += "</div > ";
-        cardTemplate += "<div class=\"card-body\">cardContent</div>";
+        cardTemplate += "<div class=\"card-body overflow-auto\">cardContent</div>";
         cardTemplate += "</div>";
 
         function addItems() {
